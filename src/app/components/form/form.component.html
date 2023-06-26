@@ -1,1 +1,26 @@
-<p>form works!</p>
+<div class="form-container">
+  <div class="qtd-dias">
+      <label style="margin-bottom: 5px;">Quantidade de dias:</label>
+      <input type="number" name="" default="5" min="5" max="30" id="qtd-dias">
+  </div>
+
+  <div class="datas">
+      <div class="container-input-datas">
+          <label>Data inicio:</label>
+          <input type="date" name="" id="data-inicio">
+      </div>
+      <div class="container-input-datas">
+          <label>Data Fim:</label>
+          <input type="date" name="" id="data-fim">
+      </div>
+  </div>
+
+  <div class="localidade">
+      <label>Estado:</label>
+      <select name="estado" id="estado-sigla"></select>
+                  <!-- <label>Cidade:</label>
+  <select name="cidade" id="cidade-nome"></select> -->
+  </div>
+
+  <input type="submit" value="Listar" class="btn btn-primary" onclick="enviarDados()">
+</div>
