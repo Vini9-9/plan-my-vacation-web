@@ -1,0 +1,13 @@
+.info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.instrucoes-content{
+  font-size: 20px;
+}
+
+#title-instrucoes{
+  font-size: 30px;
+}
+
