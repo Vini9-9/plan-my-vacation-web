@@ -1,8 +1,8 @@
 <div class="form-container">
-  <div class="qtd-dias">
-      <label style="margin-bottom: 5px;">Quantidade de dias:</label>
-      <input type="number" name="" default="5" min="5" max="30" id="qtd-dias">
-  </div>
+  <mat-form-field class="qtd-dias">
+    <mat-label>Quantidade de dias:</mat-label>
+    <input matInput type="number" [defaultValue]="5" min="5" max="30" value="5" name="qtd-dias">
+  </mat-form-field>
 
   <div class="datas">
       <div class="container-input-datas">

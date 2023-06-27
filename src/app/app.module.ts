@@ -10,6 +10,7 @@ import { FormComponent } from './components/form/form.component';
 import { ResultsComponent } from './components/results/results.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MatSelectModule } from '@angular/material/select';
     HttpClientModule,
     BrowserAnimationsModule,
     MatSelectModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
