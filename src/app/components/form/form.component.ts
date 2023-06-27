@@ -16,6 +16,8 @@ export class FormComponent implements OnInit {
       nome: " - "
   }
 
+  selectedState = this.optionEmpty.sigla
+
   constructor(private locationService: LocationService) { }
 
   ngOnInit(): void {
@@ -25,6 +27,10 @@ export class FormComponent implements OnInit {
     }, (error) => {
       console.log('Error fetching states:', error);
     })
+  }
+
+  selectState(event: Event) {
+    this.selectedState = (event.target as HTMLSelectElement).value;
   }
 
 }

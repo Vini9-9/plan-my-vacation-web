@@ -15,14 +15,13 @@
       </div>
   </div>
 
-  <div class="localidade">
-      <label>Estado:</label>
-      <select name="estado" id="estado-sigla">
-        <option *ngFor="let state of states" [value]="state.sigla" [attr.data-id]="state.id">
-          {{ state.nome }}
-        </option>
-      </select>
-  </div>
+  <mat-form-field>
+    <mat-label>Estado:</mat-label>
+    <mat-select [(value)]="selectedState">
+      <mat-option></mat-option>
+      <mat-option [value]="state.sigla" *ngFor="let state of states">{{ state.nome }}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
   <input type="submit" value="Listar" class="btn btn-primary" onclick="enviarDados()">
 </div>
