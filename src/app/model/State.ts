@@ -1,5 +1,5 @@
 export interface State {
-  id: String,
-  sigla:String,
-  nome: String,
+  id: string,
+  sigla:string,
+  nome: string,
 }

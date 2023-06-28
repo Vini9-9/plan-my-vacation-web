@@ -3,6 +3,9 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 import { State } from 'src/app/model/State';
 import { LocationService } from 'src/app/service/location.service';
+import { PeriodService } from 'src/app/service/period.service';
+import { PeriodRequest } from '../../model/PeriodRequest';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-form',
@@ -11,6 +14,7 @@ import { LocationService } from 'src/app/service/location.service';
 })
 export class FormComponent implements OnInit {
 
+  qtdDias: number = 5;
   states: State[] = [];
   optionEmpty: State = {
       id: "",
@@ -25,10 +29,19 @@ export class FormComponent implements OnInit {
     end: new FormControl(null),
   });
 
+  body: PeriodRequest = {
+    dataInicio: '',
+    dataFim: '',
+    estado: '',
+    cidade: '',
+    qtdDias: ''
+  }
+
   constructor(
     private locationService: LocationService,
     private _adapter: DateAdapter<any>,
-    @Inject(MAT_DATE_LOCALE) private _locale: string
+    @Inject(MAT_DATE_LOCALE) private _locale: string,
+    private service: PeriodService
     ) { }
 
   ngOnInit(): void {
@@ -58,7 +71,24 @@ export class FormComponent implements OnInit {
   }
 
   sendForm() {
-    console.log("listou")
+    this.fillBody()
+    this.service.getPeriods(this.body).subscribe((res) => {
+      console.log("res", res)
+    })
+  }
+
+  fillBody(){
+    this.body.estado = this.selectedState;
+    this.body.qtdDias = this.qtdDias.toString();
+    this.body.dataInicio = this.formatDateToBody(this.range.value.start);
+    this.body.dataFim = this.formatDateToBody(this.range.value.end);
+    console.log("this.body", this.body)
+  }
+
+  formatDateToBody(date: Date): string{
+    var dayMoment = moment(date);
+    var monthNumber = dayMoment.get('month') + 1;
+    return `${dayMoment.get('year')}-${('0' + monthNumber).slice(-2)}-${('0' + dayMoment.get('date')).slice(-2)}`
   }
 
 }
