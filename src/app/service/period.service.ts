@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { PeriodRequest } from '../model/PeriodRequest';
 
 @Injectable({
@@ -8,11 +8,24 @@ import { PeriodRequest } from '../model/PeriodRequest';
 })
 export class PeriodService {
 
+  private dataSource = new BehaviorSubject(false);
+  currentData = this.dataSource.asObservable();
+
+  private sharedData: any;
+
   constructor(private http: HttpClient) { }
 
   apiPeriods: string = "http://localhost:3000/feriados";
 
   getPeriods(body: PeriodRequest): Observable<any> {
     return this.http.post<any>(this.apiPeriods, body);
+  }
+
+  setData(data: any): void {
+    this.dataSource.next(data)
+  }
+
+  getData(): any {
+    return this.sharedData;
   }
 }

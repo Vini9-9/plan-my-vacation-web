@@ -74,6 +74,7 @@ export class FormComponent implements OnInit {
     this.fillBody()
     this.service.getPeriods(this.body).subscribe((res) => {
       console.log("res", res)
+      this.service.setData(res)
     })
   }
 
