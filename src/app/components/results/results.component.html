@@ -1,1 +1,26 @@
-<p>results works!</p>
+<div class="container-resultados">
+  <h2>Lista de períodos sugeridos <b id="sigla-estado"></b></h2>
+  <table class="table table-hover bg-white">
+    <thead>
+      <tr>
+        <th scope="col">Quantidade de dias sem trabalho</th>
+        <th scope="col">Feriado</th>
+        <th scope="col">Tipo feriado</th>
+        <th scope="col">Data inicio férias</th>
+        <th scope="col">Data de volta ao trabalho</th>
+      </tr>
+    </thead>
+    <tbody id="resultados">
+      <tr *ngFor="let item of mock.periodosIdeias" [ngClass]="item.feriado.tipo === 'facultativo' ? 'table-warning' : ''">
+        <th scope="row">{{ item.qtdDias }}</th>
+        <td>{{ item.feriado.nome }}</td>
+        <td>{{ item.feriado.tipo }} ({{ item.feriado.nivel }})</td>
+        <td>{{ item.diaInicio }} ({{ item.diaSemanaInicio }})</td>
+        <td>{{ item.diaFim }} ({{ item.diaSemanaFim }})</td>
+      </tr>
+    </tbody>
+    <caption>
+      Lista de períodos para jornadas de segunda a sexta
+    </caption>
+  </table>
+</div>
