@@ -1,11 +1,35 @@
 .container {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center; */
   background-color: #107cff5e;
   backdrop-filter: blur(10px);
   border-radius: 40px;
   color: black;
+  width: 60%;
+}
+
+.row {
+  align-items: center !important;
+}
+
+#qtd-dias {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+#datas {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+#localidade {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+#listar {
+  /* display: flex;
+  justify-content: center; */
+  margin: 3%;
 }

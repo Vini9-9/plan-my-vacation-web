@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <mat-form-field class="qtd-dias">
+      <mat-form-field id="qtd-dias">
         <mat-label>Quantidade de dias:</mat-label>
         <input
           matInput
@@ -16,7 +16,7 @@
     </div>
 
     <div class="col">
-      <mat-form-field class="datas">
+      <mat-form-field id="datas">
         <mat-label>Período:</mat-label>
         <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
           <input
@@ -38,7 +38,7 @@
 
   <div class="row">
     <div class="col">
-      <mat-form-field class="localidade">
+      <mat-form-field id="localidade">
         <mat-label>Estado:</mat-label>
         <mat-select [(value)]="selectedState">
           <mat-option></mat-option>
@@ -50,9 +50,19 @@
     </div>
 
     <div class="col">
-      <button type="button" class="btn btn-primary" (click)="sendForm()">
-        Listar
-      </button>
+      <mat-form-field id="localidade">
+        <mat-label>Cidade: (Em breve)</mat-label>
+        <mat-select [(value)]="selectedState" disabled>
+        </mat-select>
+      </mat-form-field>
     </div>
   </div>
+
+    <div class="row">
+      <div class="col d-flex align-items-center justify-content-center">
+        <button id="listar" type="button" class="btn btn-primary" (click)="sendForm()">
+          Listar
+        </button>
+      </div>
+    </div>
 </div>
