@@ -15,4 +15,12 @@
   .info-container {
     text-align: center;
   }
+
 }
+@media (max-width: 425px)  {
+  .instrucoes-content{
+    font-size: 1.5em;
+  }
+}
+
+
