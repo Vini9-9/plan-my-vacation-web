@@ -1,128 +1,141 @@
-# Angular on Netlify Quick Start Template    
-![netlify + angular logo](https://user-images.githubusercontent.com/43764894/223549637-2715c89d-a44e-42e0-8f6c-fa6246279658.png)
+# Plan my vacation 
+Sistema de listagem de períodos ideais para tirar férias do trabalho.
 
-This is a bare-bones Angular project that has everything you need to quickly deploy it to [Netlify](https://netlify.com). 
+## Funcionalidades
 
-Click this button and it will help you create a new repo, create a new Netlify project, and deploy!
-
-[![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/angular-quickstart)
-
-## Table of Contents:
-
-- [Setup](#setup)
-- [Deploying](#deploying)
-- [Styling](#styling)
-  - [Notes on Styling](#notes-on-styling)
-  - [Remove Styling](#remove-styling)
-- [Testing](#testing)
-  - [Included Default Testing](#included-default-testing)
-  - [Removing Renovate](#removing-renovate)
-  - [Removing Cypress](#removing-cypress)
-- [Angular + Netlify Resources](#angular--netlify-resources)
-
-## Setup
-
-Clone this repo with one of these options:
-- Click the 'Deploy to Netlify' button above
-- Click the 'Use this template' button at the top of the page
-- Or via the command line `git clone https://github.com/netlify-templates/angular-quickstart`
-
-Then install the necessary packages and run the project locally to make sure everything works.
-
-```bash
-npm install
-ng serve
-```
-
-Alternatively, you can run this locally with [the Netlify CLI](https://docs.netlify.com/cli/get-started/)'s `netlify dev` command for more options like receiving a live preview to share (`netlify dev --live`) and the ability to test [Netlify Functions](https://www.netlify.com/products/functions) and [redirects](https://docs.netlify.com/routing/redirects/). 
-
-> 🚨 If you decide to change the project name be sure to change it everywhere in the project including the [Netlify configuration file, `netlify.toml`](./netlify.toml), as there are many places in Angular projects where the project name is used. A quick fix is to find/replace all instances of `angular-quickstart` with your project name.
-
-## Deploying
-
-There are a few ways to deploy this template:
-- Click the 'Deploy to Netlify' button above 
-- Use the `netlify deploy` command
-- Head to the [Netlify UI](https://app.netlify.com/) to deploy via GitHub or [drag and drop](https://app.netlify.com/drop) the project folder
-- Use the Netlify CLI's create from template command `netlify sites:create-template angular-quickstart` which will create a repo, Netlify project, and deploy it
-
-## Styling
-
-We've added some modern styling to this template using css within an external stylesheet, this will allow you to easily remove our styling and add in your own. 
-
-If you decide that you want to keep our styling you can review our style notes below. 
-
-### Notes on Styling
-
-The variables below give you the ability to change the gradient colors of the blobs and are interpolated into the URL string of the background-img within the body. 
-
-```css
-// Controls the blob blur gradient colors within the main tag's svg
---top-right-blur-1: #20C6B7;
---top-right-blur-2: #4D9ABF;
---bttm-left-blur-1: #de3641;
---bttm-left-blur-2: #e46b73;
-```
-
-## Remove Styling
-
-If you decide that our styling is not for you, all you'll need to do is remove the [demo-styling.css](https://github.com/netlify-templates/angular-quickstart/blob/tn/designUpdates/src/demo-styling.css) file. 
-
-## Testing
-
-### Included Default Testing
-
-We’ve included some tooling that helps us maintain these templates. This template currently uses:
-
-- [Renovate](https://www.mend.io/free-developer-tools/renovate/) - to regularly update our dependencies
-- [Cypress](https://www.cypress.io/) - to run tests against how the template runs in the browser
-- [Cypress Netlify Build Plugin](https://github.com/cypress-io/netlify-plugin-cypress) - to run our tests during our build process
-
-If your team is not interested in this tooling, you can remove them with ease!
-
-### Removing Renovate
-
-In order to keep our project up-to-date with dependencies we use a tool called [Renovate](https://github.com/marketplace/renovate). If you’re not interested in this tooling, delete the `renovate.json` file and commit that onto your main branch.
-
-### Removing Cypress
-
-For our testing, we use [Cypress](https://www.cypress.io/) for end-to-end testing. This makes sure that we can validate that our templates are rendering and displaying as we’d expect. By default, we have Cypress not generate deploy links if our tests don’t pass. If you’d like to keep Cypress and still generate the deploy links, go into your `netlify.toml` and delete the plugin configuration lines:
-
-```diff
-[[plugins]]
-  package = "netlify-plugin-cypress"
--  [plugins.inputs.postBuild]
--    enable = true
--
--  [plugins.inputs]
--    enable = false 
-```
-
-If you’d like to remove the `netlify-plugin-cypress` build plugin entirely, you’d need to delete the entire block above instead. And then make sure sure to remove the package from the dependencies using:
-
-```bash
-npm uninstall -D netlify-plugin-cypress
-```
-
-And lastly if you’d like to remove Cypress entirely, delete the entire `cypress` folder and the `cypress.config.ts` file. Then remove the dependency using:
-
-```bash
-npm uninstall cypress
-```
-
-## Angular + Netlify Resources
-
-Here are some resources to help you on your Angular + Netlify coding fun!
-
-- [A video walkthrough of the Angular Quick Start Template](https://youtu.be/rNAiN94bBUs)
-- [A blog post on the Angular Quick Start Template](https://www.netlify.com/blog/get-started-with-angular-on-netlify-quickly)
-
-- [Angular on Netlify Configuration Docs](https://docs.netlify.com/configure-builds/common-configurations/angular/)
-- [Angular posts via the Netlify Blog](https://www.netlify.com/tags/angular/)
-- [Angular in the Jamstack Tutorials](https://explorers.netlify.com/learn/angular-in-the-jamstack)
-
-Hope this template helps :) Happy coding 👩🏻‍💻!
+* Calcula a quantidade de dias sem trabalho
+* Informa o tipo de feriado (facultativo / nacional / estadual)
+* Lista os períodos ideais de acordo com a quantidade de dias, período informado e estado (futuramente terá para municipais).
+* Integração com API de feriados nacionais e estaduais.
+* Integração com API de feriados municipais (em breve!)
 
 ---
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+## Configuração e Setup
+
+Para configurar e executar o aplicativo Angular, siga os seguintes passos:
+
+1. Instale o Node.js e o npm (Node Package Manager) em sua máquina, caso ainda não estejam instalados. Você pode baixá-los no site oficial: [Node.js](https://nodejs.org).
+
+2. Clone o repositório do GitHub:
+
+   ```
+   git clone https://github.com/seu/repositorio.git
+   ```
+
+3. Navegue até o diretório raiz do projeto:
+
+   ```
+   cd plan-my-vacation-web
+   ```
+
+4. Instale as dependências do projeto usando o npm:
+
+   ```
+   npm install
+   ```
+
+5. Configure as chaves de API e os endpoints necessários no aplicativo. Você pode precisar criar contas e obter chaves de API dos provedores de API de feriados correspondentes.
+
+6. Inicie o servidor de desenvolvimento:
+
+   ```
+   ng serve
+   ```
+
+7. Abra um navegador da web e acesse http://localhost:4200 para acessar o aplicativo.
+
+---
+
+Observe que os passos acima presumem que você possui o Angular CLI (Command Line Interface) instalado globalmente em sua máquina. Se você não o tiver instalado, pode instalá-lo executando o seguinte comando:
+
+```
+npm install -g @angular/cli
+```
+
+# English Version
+
+# Plan my vacation
+
+A listing system for ideal vacation periods from work.
+
+## Features
+
+* Calculates the number of days without work
+* Provides information on the type of holiday (optional / national / state)
+* Lists the ideal periods based on the specified number of days, period, and state (municipal support coming soon)
+* Integration with national and state holiday APIs
+* Integration with municipal holiday APIs (coming soon!)
+
+---
+
+## Setup and Configuration
+
+To set up and run the Angular app, please follow these steps:
+
+1. Install Node.js and npm (Node Package Manager) on your machine if they are not already installed. You can download them from the official website: [Node.js](https://nodejs.org).
+
+2. Clone the repository from GitHub:
+
+   ```
+   git clone https://github.com/your/repository.git
+   ```
+
+3. Navigate to the project's root directory:
+
+   ```
+   cd plan-my-vacation-web
+   ```
+
+4. Install the project dependencies using npm:
+
+   ```
+   npm install
+   ```
+
+5. Configure the necessary API keys and endpoints in the app. You may need to create accounts and obtain API keys from the respective holiday API providers.
+
+6. Start the development server:
+
+   ```
+   ng serve
+   ```
+
+7. Open a web browser and visit http://localhost:4200 to access the application.
+
+---
+
+Please note that the above steps assume you have Angular CLI (Command Line Interface) installed globally on your machine. If you don't have it installed, you can install it by running the following command:
+
+```
+npm install -g @angular/cli
+```
+
+# Plan my vacation 
+Sistema de listagem de períodos ideais para tirar férias do trabalho.
+
+## Funcionalidades
+
+* Calcula a quantidade de dias sem trabalho
+* Informa o tipo de feriado (facultativo / nacional / estadual)
+* Lista os períodos ideais de acordo com a quantidade de dias, período informado e estado (futuramente terá para municipais).
+* Integração com API de feriados nacionais e estaduais.
+* Integração com API de feriados municipais (em breve!)
+
+---
+
+# English Version
+
+# Plan my vacation
+
+A listing system for ideal vacation periods from work.
+
+## Features
+
+* Calculates the number of days without work
+* Provides information on the type of holiday (optional / national / state)
+* Lists the ideal periods based on the specified number of days, period, and state (municipal support coming soon)
+* Integration with national and state holiday APIs
+* Integration with municipal holiday APIs (coming soon!)
+
+---
