@@ -110,32 +110,3 @@ Please note that the above steps assume you have Angular CLI (Command Line Inter
 ```
 npm install -g @angular/cli
 ```
-
-# Plan my vacation 
-Sistema de listagem de períodos ideais para tirar férias do trabalho.
-
-## Funcionalidades
-
-* Calcula a quantidade de dias sem trabalho
-* Informa o tipo de feriado (facultativo / nacional / estadual)
-* Lista os períodos ideais de acordo com a quantidade de dias, período informado e estado (futuramente terá para municipais).
-* Integração com API de feriados nacionais e estaduais.
-* Integração com API de feriados municipais (em breve!)
-
----
-
-# English Version
-
-# Plan my vacation
-
-A listing system for ideal vacation periods from work.
-
-## Features
-
-* Calculates the number of days without work
-* Provides information on the type of holiday (optional / national / state)
-* Lists the ideal periods based on the specified number of days, period, and state (municipal support coming soon)
-* Integration with national and state holiday APIs
-* Integration with municipal holiday APIs (coming soon!)
-
----
