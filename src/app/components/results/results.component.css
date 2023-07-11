@@ -2,3 +2,10 @@
   display: flex;
   justify-content: center;
 }
+
+@media (max-width: 768px) {
+  .container-resultados {
+    flex-direction: column;
+    margin-bottom: 3.5rem;
+  }
+}

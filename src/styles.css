@@ -8,9 +8,15 @@ html {
 
 body {
   background-image: url("assets/yellow-min.jpg");
-  background-repeat: no-repeat;
   background-size: cover;
 }
 
 html, body { height: 100%; }
 body { margin: 0 }
+
+@media (max-width: 425px) {
+  html, body {
+    width: fit-content;
+  }
+}
+
