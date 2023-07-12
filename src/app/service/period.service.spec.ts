@@ -79,10 +79,6 @@ describe('PeriodService', () => {
     service.setData(dummyData);
 
     service.currentData.subscribe(res => {
-      console.log("**********")
-      console.log(res)
-      console.log("-----------")
-      console.log(dummyData)
       expect(res).toEqual(dummyData);
     });
 
