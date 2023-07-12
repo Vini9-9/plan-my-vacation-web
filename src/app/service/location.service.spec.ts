@@ -1,16 +1,40 @@
+import { LocationService } from "./location.service"
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-
-import { LocationService } from './location.service';
+import { STATES_DATA } from "src/mocks/responses/states";
 
 describe('LocationService', () => {
-  let service: LocationService;
+
+  let service: LocationService, httpTestingController: HttpTestingController;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [
+        LocationService
+      ]
+    })
     service = TestBed.inject(LocationService);
+    httpTestingController = TestBed.inject(HttpTestingController);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  fit('return the states', () => {
+
+    service.getStates().subscribe(res => {
+      expect(res).toBeTruthy();
+      expect(res.length).toBe(27);
+    });
+
+    const req = httpTestingController.expectOne(service.apiStates);
+
+    expect(req.request.method).toBe('GET');
+    req.flush(STATES_DATA);
+
   });
+
+
+afterEach(() => {
+  httpTestingController.verify();
 });
+
+})
