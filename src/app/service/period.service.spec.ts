@@ -73,6 +73,21 @@ describe('PeriodService', () => {
 
   });
 
+  it('should set and retrieve shared data', () => {
+    const dummyData: any = { key: 'value' };
+
+    service.setData(dummyData);
+
+    service.currentData.subscribe(res => {
+      console.log("**********")
+      console.log(res)
+      console.log("-----------")
+      console.log(dummyData)
+      expect(res).toEqual(dummyData);
+    });
+
+  });
+
   afterEach(() => {
     httpTestingController.verify();
   });

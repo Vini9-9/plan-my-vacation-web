@@ -27,7 +27,4 @@ export class PeriodService {
     this.dataSource.next(data)
   }
 
-  getData(): any {
-    return this.sharedData;
-  }
 }
