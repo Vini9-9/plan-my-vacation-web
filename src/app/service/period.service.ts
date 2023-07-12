@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { PeriodRequest } from '../model/PeriodRequest';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class PeriodService {
 
   constructor(private http: HttpClient) { }
 
-  apiPeriods: string = environment.apiFeriado || "http://localhost:3000/feriados";
+  apiPeriods: string = environment.apiFeriado;
 
   getPeriods(body: PeriodRequest): Observable<any> {
     return this.http.post<any>(this.apiPeriods, body);
