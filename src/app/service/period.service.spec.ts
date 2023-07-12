@@ -13,7 +13,7 @@ describe('PeriodService', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
-        PeriodService
+        PeriodService,
       ]
     });
     service = TestBed.inject(PeriodService);
@@ -35,6 +35,10 @@ describe('PeriodService', () => {
     req.flush(PERIODS);
 
 
+  });
+
+  afterEach(() => {
+    httpTestingController.verify();
   });
 
 
