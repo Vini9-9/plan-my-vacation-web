@@ -1,8 +1,13 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
-  "exclude": ["cypress.config.ts"],
-  "files": ["cypress.config.ts"],
+  "include": [
+    "src",
+    "node_modules/cypress"
+    ],
+    "exclude": [
+        "node_modules/cypress"
+    ],
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
