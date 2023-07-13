@@ -16,13 +16,8 @@ export class FormComponent implements OnInit {
 
   qtdDias: number = 5;
   states: State[] = [];
-  optionEmpty: State = {
-      id: "",
-      sigla: "",
-      nome: " - "
-  };
 
-  selectedState = this.optionEmpty.sigla;
+  selectedState = "";
 
   range = new FormGroup({
     start: new FormControl(null),
@@ -48,7 +43,6 @@ export class FormComponent implements OnInit {
     this.setFormatLanguage();
     this.locationService.getStates().subscribe((res: State[]) => {
       this.states = Object.values(res).sort((a: State, b: State) => a.sigla.localeCompare(b.sigla));
-      this.states.unshift(this.optionEmpty);
     }, (error) => {
       console.log('Error fetching states:', error);
     })

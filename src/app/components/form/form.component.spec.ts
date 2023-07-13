@@ -5,10 +5,14 @@ import { LocationService } from 'src/app/service/location.service';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 import { PeriodService } from 'src/app/service/period.service';
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing"
+import { setupSortedStates } from 'src/mocks/setupData/statesSorted';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 fdescribe('FormComponent', () => {
   let component: FormComponent;
   let fixture: ComponentFixture<FormComponent>;
+  let el: DebugElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -24,11 +28,23 @@ fdescribe('FormComponent', () => {
     .compileComponents().then(() => {
       fixture = TestBed.createComponent(FormComponent);
       component = fixture.componentInstance;
+      el = fixture.debugElement
     });
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display states list', () => {
+    component.states = setupSortedStates();
+
+    fixture.detectChanges();
+
+    const statesOption = el.queryAll(By.css('.states-option'));
+
+    expect(statesOption).toBeTruthy("Could not find states options");
+    expect(statesOption.length).toBe(27, "Unexpected number of states options");
   });
 
   // it('should formatDateToBody less than ten', () => {
