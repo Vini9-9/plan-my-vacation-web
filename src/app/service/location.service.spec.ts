@@ -18,7 +18,7 @@ describe('LocationService', () => {
     httpTestingController = TestBed.inject(HttpTestingController);
   });
 
-  fit('return the states', () => {
+  it('return the states', () => {
 
     service.getStates().subscribe(res => {
       expect(res).toBeTruthy();
