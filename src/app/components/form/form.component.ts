@@ -46,8 +46,8 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.setFormatLanguage();
-    this.locationService.getStates().subscribe((res) => {
-      this.states = res;
+    this.locationService.getStates().subscribe((res: State[]) => {
+      this.states = Object.values(res).sort((a: State, b: State) => a.sigla.localeCompare(b.sigla));
       this.states.unshift(this.optionEmpty);
     }, (error) => {
       console.log('Error fetching states:', error);
@@ -73,7 +73,6 @@ export class FormComponent implements OnInit {
   sendForm() {
     this.fillBody()
     this.service.getPeriods(this.body).subscribe((res) => {
-      console.log("res", res)
       this.service.setData(res)
     })
   }
@@ -83,7 +82,6 @@ export class FormComponent implements OnInit {
     this.body.qtdDias = this.qtdDias.toString();
     this.body.dataInicio = this.formatDateToBody(this.range.value.start);
     this.body.dataFim = this.formatDateToBody(this.range.value.end);
-    console.log("this.body", this.body)
   }
 
   formatDateToBody(date: Date): string{
