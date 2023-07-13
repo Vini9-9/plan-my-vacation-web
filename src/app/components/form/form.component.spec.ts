@@ -28,7 +28,7 @@ fdescribe('FormComponent', () => {
     .compileComponents().then(() => {
       fixture = TestBed.createComponent(FormComponent);
       component = fixture.componentInstance;
-      el = fixture.debugElement
+      el = fixture.debugElement;
     });
   });
 
@@ -45,6 +45,22 @@ fdescribe('FormComponent', () => {
 
     expect(statesOption).toBeTruthy("Could not find states options");
     expect(statesOption.length).toBe(27, "Unexpected number of states options");
+  });
+
+  it('should display the states list sorted by sigla', () => {
+    component.states = setupSortedStates();
+    const firstState = component.states[0];
+    const lastState = component.states[component.states.length - 1];
+
+    fixture.detectChanges();
+
+    const firstStateOption = el.query(By.css('.states-option:nth-child(2)'));
+    const lastStateOption = el.query(By.css('.states-option:nth-child(28)'));
+
+    expect(firstStateOption).toBeTruthy("Could not find first state option");
+    expect(lastStateOption).toBeTruthy("Could not find last state option");
+    expect(firstStateOption.nativeElement.textContent).toBe(firstState.nome)
+    expect(lastStateOption.nativeElement.textContent).toBe(lastState.nome)
   });
 
   // it('should formatDateToBody less than ten', () => {
